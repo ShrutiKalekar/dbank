@@ -6,12 +6,13 @@ import Float "mo:base/Float";
 
 actor DBank {
   stable var currVal: Float = 300;
-  // currVal := 500;
+  currVal := 500;
   // let id = 65456945438703;
-  // Debug.print(debug_show(id));
+  // Debug.print(debug_show(currVal));
 
   // type Time = Int;
   stable var now : Int = Time.now();
+  now := Time.now();
   Debug.print(debug_show(now));
 
   public func topUp(amount: Float) {
@@ -37,7 +38,7 @@ actor DBank {
     let currTime = Time.now();
     let timeElapsedNS = currTime - now;
     let timeElapsedS = timeElapsedNS/1000000000;
-    currVal := currVal * (1.01  ** Float.fromInt(timeElapsedS));
+    currVal := currVal * (1.001  ** Float.fromInt(timeElapsedS));
     now := currTime;
   };
 
